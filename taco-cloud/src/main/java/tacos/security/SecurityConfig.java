@@ -9,8 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import tacos.Customer;
-import tacos.data.CustomerRepository;
+import tacos.User;
+import tacos.data.UserRepository;
 
 @Configuration
 public class SecurityConfig {
@@ -21,13 +21,13 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(CustomerRepository customerRepo) {
+    public UserDetailsService userDetailsService(UserRepository userRepo) {
         return username -> {
-            Customer customer = customerRepo.findByUsername(username);
-            if (customer != null) {
-                return customer;
+            User user = userRepo.findByUsername(username);
+            if (user != null) {
+                return user;
             }
-            throw new UsernameNotFoundException("Customer '" + username + "' not found");
+            throw new UsernameNotFoundException("User '" + username + "' not found");
         };
     }
 

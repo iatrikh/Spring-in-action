@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tacos.data.CustomerRepository;
+import tacos.data.UserRepository;
 
 @Controller
 @RequestMapping("/register")
 public class RegistrationController {
 
-    private CustomerRepository customerRepo;
+    private UserRepository userRepo;
     private PasswordEncoder passwordEncoder;
 
-    public RegistrationController(CustomerRepository userRepo, PasswordEncoder passwordEncoder) {
-        this.customerRepo = userRepo;
+    public RegistrationController(UserRepository userRepo, PasswordEncoder passwordEncoder) {
+        this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -27,7 +27,7 @@ public class RegistrationController {
 
     @PostMapping
     public String processRegistration(RegistrationForm form) {
-        customerRepo.save(form.toCustomer(passwordEncoder));
+        userRepo.save(form.toUser(passwordEncoder));
         return "redirect:/login";
     }
 }
