@@ -6,9 +6,3 @@ taco-cloud/mvnw.cmd
 taco-cloud/mvnw
 taco-cloud/HELP.md
 .vscode/launch.json
-taco-cloud/target/classes/application.yaml
-taco-cloud/target/classes/META-INF/additional-spring-configuration-metadata.json
-taco-cloud/target/classes/tacos/DevelopmentConfig.class
-taco-cloud/target/classes/tacos/DevelopmentConfig$1.class
-taco-cloud/target/classes/tacos/TacoCloudApplication.class
-taco-cloud/target/classes/tacos/TacoCloudApplication$1.class
